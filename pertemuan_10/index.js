@@ -1,27 +1,45 @@
-// Tahap #1
-const account = { 
-    name: 'user',
-    expenses: [],
+  //Var, Let, Const
 
-// Tahap #2
-    addExpense(description, amount) {
-        account.expenses.push({
-            description: description,
-            amount: amount
-        });
-    },
+/*kelemahan var
+1. Deklarasi variabel sama, tidak ada error
+*/
 
-// Tahap #3
-    getAccountSummary() {
-        return account.expenses.reduce((result, expense) 
-        => result + expense.amount, 0)
+//scope dalam javascript
+//1. Function Scope (var)
+//2. Block Scope
+// semua yang ada buka dan tutup kurung disebut block
+// var bukan block
+
+/*tidak bisa diakses di luar fungsi
+function tes(){
+    for (var i=0; i<10; i++){
+        console.log(i);
     }
 }
+*/
 
-// Tahap #4
-account.addExpense('Beli Buku', 5000);
-account.addExpense('Beli Pulpen', 2000);
-account.addExpense('Beli Pensil', 1000);
-account.addExpense('Beli Spidol', 3000);
-console.log(account.getAccountSummary()); 
-//Output = 11000
+for (let i = 0; i<10; i++){
+    console.log(i);
+}
+console.log(i);
+
+//Templete Literal
+
+const person  = {
+    firstName:"Virjin",
+    lastName:"Husain",
+    age: 19,
+}
+
+console.log(
+    "Hallo nama saya"+ 
+    person.firstName +
+    " " +
+    person.lastName + 
+    ". umur saya adalah" +
+    person.age +
+    "tahun."
+)
+console.log(
+    `Hallo nama saya ${person.firstName}. ${person.lastName}. Umur saya ${person.age} tahun` 
+)
