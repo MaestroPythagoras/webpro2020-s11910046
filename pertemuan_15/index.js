@@ -71,10 +71,10 @@
 // -----------------------------------------------------------------------------
 // 4. Kombinasi dengan Rest Operator
 
-const colors = ["merah","kuning","hijau","biru"];
+// const colors = ["merah","kuning","hijau","biru"];
 
-let [satu, ...lainnya] = colors;
+// let [satu, ...lainnya] = colors;
 
-consloe.log(satu);
-let
+// consloe.log(satu);
+// let[satu];
 
