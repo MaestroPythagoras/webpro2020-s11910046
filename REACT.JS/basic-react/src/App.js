@@ -1,67 +1,41 @@
-import React, { Component,useEffect,useState } from "react";
-import Card from "./components/Card";
-import "./App2.css";
-import axios from 'axios';
-
-// class App extends Component{
-//     state = {
-//         users: []
-//     }
-
-//     componentDidMount(){
-//         // fetch('https://jsonplaceholder.typicode.com/users')
-//         // .then(response => response.json())
-//         // .then(json => this.setState({users: json}));  
-
-//         axios
-//         .get('https://jsonplaceholder.typicode.com/users')
-//         .then((response) => this.setState({users: response.data}));
-//     }
-
-//     render(){
-//         return (
-//             <>
-//                 {this.state.users.map((item) => {
-//                     return(
-//                         <Card
-//                         name={item.name} 
-//                         username={item.username} 
-//                         email={item.email} 
-//                         phone={item.phone}
-//                     />
-//                     );
-//                 })}
-//             </>
-//         );
-//     }
-// }
+import React from "react";
+import "./App.css";
+import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import { Home, Login, Register } from "./pages";
 
 
-// Functional Component
 const App = () => {
-
-    const [users,setUsers] = useState([]);
-
-    useEffect(() => {
-    axios
-        .get("https://jsonplaceholder.typicode.com/users")
-        .then((response) => setUsers(response.data));
-    }, []);
-
-    return(
-        <>
-        {
-            users.map((item) => {
-                return (
-                    <Card
-                        name={item.name} 
-                        username={item.username} 
-                        email={item.email} 
-                        phone={item.phone}
-                    />
-                );
-            })}
-        </>
+    return (
+        <Router>
+            <div>
+            <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+          </ul>
+        </nav>
+            <Switch>
+                <Route path="/login">
+                    <Login />
+                </Route>
+                <Route path="/register">
+                    <Register />
+                </Route>
+                <Route path="/">
+                    <Home />
+                </Route>
+            </Switch>
+            </div>
+        </Router>
     );
 };
+
+
 export default App;
